@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#06130f" />
+  <title>LAST KICK — Penalty Shootout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="3D penalty shootout football game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Last Kick home"><span class="brand-mark">L<span>K</span></span><span class="brand-name">LAST<span>KICK</span><small>STADIUM SERIES · 01</small></span></a>
+      <div class="live-pill"><i></i> LIVE MATCH</div>
+      <button class="sound-button" id="soundButton" aria-label="Toggle sound"><span id="soundIcon">♫</span><span>SOUND</span></button>
+    </header>
+    <section class="scoreboard" aria-label="Match score">
+      <div class="score-team home"><span class="team-crest">✦</span><span class="team-copy"><b>SEOUL FC</b><small>HOME</small></span></div>
+      <div class="score-center"><span class="score-line"><b id="scoreHome">0</b><i>:</i><b id="scoreAway">0</b></span><span class="match-clock" id="matchClock">PENALTY 01 <i>•</i> 5 KICKS</span></div>
+      <div class="score-team away"><span class="team-copy"><b>WORLD XI</b><small>AWAY</small></span><span class="team-crest away-crest">◆</span></div>
+    </section>
+    <div class="match-label"><span class="label-line"></span><span id="phaseLabel">YOUR KICK</span><span class="label-line"></span></div>
+    <div class="crosshair" id="crosshair"><span></span></div>
+    <div class="aim-hint" id="aimHint"><span class="hint-key">MOVE</span> TO PICK YOUR CORNER <span class="hint-arrow">↗</span></div>
+    <section class="bottom-ui">
+      <div class="power-card">
+        <div class="power-top"><span>SHOT POWER</span><span id="powerText">READY</span></div>
+        <div class="power-track"><div id="powerFill"></div><i class="power-mark mark-one"></i><i class="power-mark mark-two"></i></div>
+        <div class="power-scale"><span>PLACEMENT</span><span>POWER</span><span>MAX</span></div>
+      </div>
+      <div class="shot-instruction"><span class="space-key" id="actionKey">SPACE</span><span id="actionText">HOLD TO CHARGE <b>·</b> RELEASE TO SHOOT</span></div>
+      <div class="kick-count"><span class="kick-label">KICK</span><span id="kickNumber">01</span><span class="kick-total">/ 05</span></div>
+    </section>
+    <div class="toast" id="toast"><span id="toastText">GOAL!</span></div>
+    <div class="mobile-controls" aria-label="Touch controls">
+      <div class="aim-pad"><button data-aim="left" aria-label="Aim left">‹</button><div class="aim-pad-center">AIM</div><button data-aim="right" aria-label="Aim right">›</button><button data-aim="up" aria-label="Aim higher">⌃</button><button data-aim="down" aria-label="Aim lower">⌄</button></div>
+      <button class="shoot-button" id="shootButton"><span class="shoot-ring">⚽</span><b>HOLD TO SHOOT</b></button>
+    </div>
+    <div class="result-screen" id="resultScreen" aria-hidden="true"><div class="result-card"><span class="result-kicker">FULL TIME</span><h1 id="resultTitle">NICE TRY.</h1><p id="resultSummary">The stadium is yours. One more?</p><div class="final-score"><span>SEOUL FC</span><b id="finalScore">0 — 0</b><span>WORLD XI</span></div><button id="rematchButton">PLAY AGAIN <span>↗</span></button></div></div>
+    <div class="corner-note"><span>PRO TIP</span> Aim for the corners. The keeper can’t reach everything.</div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
